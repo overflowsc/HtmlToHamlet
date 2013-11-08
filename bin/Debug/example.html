@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Castle Death - 325</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="lib/jquery-2.0.3.js"></script>
+    <script src="lib/scripts.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <img src="res/lone_wolf.jpg" alt="Logo" class="logo" />
+        <nav>
+            <ul class="navMenu">
+                <li><a href="home.html" class="navItem">Home</a></li>
+                <li><a href="profile.html" class="navItem">Profile</a></li>
+                <li><a href="#" class="navItem currentPage">Book</a></li>
+                <li><a href="help.html#rules" class="navItem" target="_blank">Help</a></li>
+                <li><a href="home.html" class="navItem">Quit</a></li>
+            </ul>
+            <div class="clear"></div>
+        </nav>
+    </header>
+    <article class="bookPageContent">
+        <article class="playerStats">
+            <section class="skillSection">
+                <div class="characterStatsTitle">
+                    <h1>
+                        Character stats
+                    </h1>
+
+                    <span class="characterName">
+                        Rodrigo
+                    </span>
+                </div>
+                <div class="characterStatsStatsZone">
+                    <img src="res/ability.jpg" title="Skill1" class="characterStatsSkillImage characterStatsSkillImage1" alt="Skill1" />
+                    <img src="res/shield.jpg" title="Skill2" class="characterStatsSkillImage characterStatsSkillImage2" alt="Skill2" />
+                    <img src="res/gold.jpg" title="Skill3" class="characterStatsSkillImage characterStatsSkillImage3" alt="Skill3" />
+                </div>
+                <div class="characterStatsStatsZone">
+
+                    <img src="res/ability.jpg" alt="Ability icon" title="" class="skillLogo" />
+                    <div class="skillScale scaleSkillPoints">
+                        <!-- width defined here to make a progressbar from the values -->
+                        <div class="skillScaleForeground" style="width: 11%">&nbsp;</div>
+                        <div class="skillScaleValue">11</div>
+                        <div class="skillScaleMin"></div>
+                        <div class="skillScaleMax"></div>
+                    </div>
+                </div>
+                <div class="characterStatsStatsZone">
+                    <img src="res/shield.jpg" alt="Health points icon" title="" class="skillLogo" />
+                    <div class="skillScale scaleHealthPoints">
+                        <!-- width defined here to make a progressbar from the values -->
+                        <div class="skillScaleForeground" style="width: 33%">&nbsp;</div>
+                        <div class="skillScaleValue">23</div>
+                        <div class="skillScaleMin"></div>
+                        <div class="skillScaleMax"></div>
+                    </div>
+                </div>
+                <div class="characterStatsStatsZone">
+                    <img src="res/gold.jpg" alt="Gold icon" title="" class="skillLogo" />
+                    <div class="skillScale scaleGoldPoints">
+                        <!-- width defined here to make a progressbar from the values -->
+                        <div class="skillScaleForeground" style="width: 67%">&nbsp;</div>
+                        <div class="skillScaleValue">16</div>
+                        <div class="skillScaleMin"></div>
+                        <div class="skillScaleMax"></div>
+                    </div>
+
+                </div>
+            </section>
+        </article>
+        <article class="storyArticle">
+            <section class="story">
+                <h1>Castle Death - 325</h1>
+                <p>You strike the seething water with a mighty splash and sink like a stone. The sharp tang of the lake fills your mouth, and its icy cold embrace numbs your muscles. Your first impulse on hitting the water is to lash out with your arms and swim, but you are hampered by a mass of plant life that coils around your flailing limbs. Desperate for air, you hack blindly at the weeds that now threaten to drag you to a watery grave.</p>
+
+                <p>Fight the combat as normal. However, due to your lack of air, you must automatically deduct 2 ENDURANCE points for every round that you fight.</p>
+
+                <p>Black Lakeweed: COMBAT SKILL 10   ENDURANCE 50</p>
+
+                <section class="fightSection">
+                    <table border="0">
+                        <tr class="fightInfo">
+                            <td class="fightColomn1">Round </td>
+                            <td class="fightColomn2" id="fightRound"></td>
+                            <td class="fightColomn3" style="text-align: center;">
+                                <div class="diceArea">
+                                    <img src="res/dice.png" alt="Dice" id="diceImgCombat" />
+                                    <span id="fightRandomNumber"></span>
+                                </div>
+                            </td>
+                            <td class="fightColomn4"></td>
+                        </tr>
+                        <tr class="fighter" id="fighterLoneWolf">
+                            <td class="fightColomn1 fighterName">Lone Wolf</td>
+                            <td class="fightColomn2"> <img src="res/shield.jpg" alt="Health points icon" title="" class="figthHealthLogo" /></td>
+                            <td class="fightColomn3 fighterLifeScale ">
+                                <div class="skillScale">
+                                    <!-- width defined here to make a progressbar from the values -->
+                                    <div class="skillScaleForeground">&nbsp;</div>
+                                    <div class="skillScaleDamage">&nbsp;</div>
+                                    <div class="skillScaleValue"></div>
+                                    <div class="skillScaleMin"></div>
+                                    <div class="skillScaleMax"></div>
+                                </div>
+                            </td>
+                            <td class="fightColomn4 pointLost"></td>
+                        </tr>
+                        <tr class="fighter" id="fighterEnemy">
+                            <td class="fightColomn1 fighterName">Black Lakeweed
+                                <span class="enemySkillPoints" style="display:none;">10</span>
+                            </td>
+                            <td class="fightColomn2"> <img src="res/shield.jpg" alt="Health points icon" title="" class="figthHealthLogo" /> </td>
+                            <td class="fightColomn3 fighterLifeScale" >
+                                <div class="skillScale">
+                                    <!-- width defined here to make a progressbar from the values -->
+                                    <div class="skillScaleForeground" >&nbsp;</div>
+                                    <div class="skillScaleDamage" >&nbsp;</div>
+                                    <div class="skillScaleValue">50</div>
+                                    <div class="skillScaleMin"></div>
+                                    <div class="skillScaleMax"></div>
+                                </div>
+                            </td>
+                            <td class="fightColomn4 pointLost"></td>
+                        </tr>
+                        <tr>
+                            <td class="fightColomn1"></td>
+                            <td class="fightColomn2"></td>
+                            <td class="fightColomn3">
+                                <span class="button-available" id="fightButton" style="text-decoration:none;" >
+                                    <img src="res/fightButton.png" alt="Fight Button" title="Fight another round" style="width: 45%;"/>
+                                </span>
+                                <span class="button-unavailable" id="fleeButton" style="text-decoration:none;">
+                                    <img src="res/fleeButton.png" alt="Flee Button" title="Try to escape the combat" style="width: 45%;"/>
+                                </span>
+                            </td>
+                            <td class="fightColomn4"></td>
+                        </tr>
+                    </table>
+                    <div class="ratioDisplay">
+                        <img src="res/RatioBack.png" alt="Combat Ratio" class="">
+                        <div class="ratioText"></div>
+                    </div>
+                </section>
+                <section class="fightWinSection playerActionSection">
+                    <section class="decision-section">
+                        <img src="res/metal_anchor.png" class="decision-section-anchor decision-section-anchor1" />
+                        <img src="res/metal_anchor.png" class="decision-section-anchor decision-section-anchor2" />
+                        <img src="res/metal_anchor.png" class="decision-section-anchor decision-section-anchor3" />
+                        <img src="res/metal_anchor.png" class="decision-section-anchor decision-section-anchor4" />
+                        <a href="page158.html" class="decision-link decision-link-active">
+                            <img src="res/ok.png" alt="choose 158" title="turn to 158" class="decision-button" />
+                        </a>
+                        <span class="decision-text">You survived the struggle<br /> Click to continue</span>
+                    </section>
+                </section>
+                <section class="fightLostSection">
+                    <img src="res/gameover.png" alt="game_over" />
+                </section>
+                <section class="fightFledSection">
+                    <img src="res/coward.jpeg" alt="you fled" />
+                    <section class="playerActionSection">
+                        <section class="decision-section">
+                            <img src="res/metal_anchor.png" class="decision-section-anchor decision-section-anchor1" />
+                            <img src="res/metal_anchor.png" class="decision-section-anchor decision-section-anchor2" />
+                            <img src="res/metal_anchor.png" class="decision-section-anchor decision-section-anchor3" />
+                            <img src="res/metal_anchor.png" class="decision-section-anchor decision-section-anchor4" />
+                            <a href="page158.html" class="decision-link decision-link-active">
+                                <img src="res/ok.png" alt="choose 158" title="turn to 158" class="decision-button" />
+                            </a>
+                            <span class="decision-text">You fled the fight<br /> Click to continue</span>
+                        </section>
+                    </section>
+                </section>
+            </section>
+
+            <input type="checkbox" name="backpack" id="backpackCheckbox" class="equipmentSelectionCheckbox" />
+            <label for="backpackCheckbox" id="backpackCheckboxLabel" class="equipmentSelectionCheckboxLabel" title="Backpack"></label>
+
+            <article class="backpack" >
+                <div class="exitBackpack">&nbsp;</div>
+                <img src="res/sword.png" alt="sword" class="backpackItem" title="Sword" />
+                <img src="res/lantern.png" alt="lantern" class="backpackItem" title="Lantern" />
+                <img src="res/potion.png" alt="potion" class="backpackItem" title="Potion" />
+                <img src="res/bow.png" alt="bow" class="backpackItem" title="Bow" />
+                <img src="res/quiver.png" alt="quiver" class="backpackItem" title="Quiver" />
+                <p class="backpackItemQuantity" id="backpackItemQuantity3">2</p>
+                <p class="backpackItemQuantity" id="backpackItemQuantity5">6</p>
+            </article>
+        </article>
+    </article>
+    <div class="clear"></div>
+    <footer>
+        <div class="websiteFooter">
+            <span class="websiteFooter-title">Castle Death - Lone Wolf by </span>
+            <br />
+            <span class="websiteFooter-authors">Mathieu Parent and Michael Ferris</span>
+        </div>
+    </footer>
+</body>
+</html>
