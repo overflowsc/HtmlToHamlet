@@ -16,12 +16,31 @@ namespace HtmlToHamlet
 
         public static void Main(string[] args)
         {
+            string[] filenameList = args;
+            List<string> ignoredFiles = new List<string>();
+
             if (args.Length == 0)
             {
                 Console.WriteLine("No input files.");
                 Console.WriteLine("Usage: put the path to the files to convert in argument separated with spaces.");
-                Console.ReadLine(); //Pause
-                return;
+
+                char inputChar = ' ';
+                while (inputChar != 'y' && inputChar != 'n')
+                {
+                    Console.WriteLine("\nDo you want to process all the files in the current folder? (y/n)");
+                    ConsoleKeyInfo ki = Console.ReadKey();
+                    inputChar = Char.ToLower(ki.KeyChar);
+                }
+
+                if (inputChar == 'y')
+                {
+                    filenameList = Directory.GetFiles(Directory.GetCurrentDirectory());
+                }
+                else if (inputChar == 'n')
+                {
+                    return;
+                }
+                
             }
 
 
@@ -51,29 +70,32 @@ namespace HtmlToHamlet
                 return;
             }
 
-            foreach (string filename in args)
+            foreach (string filename in filenameList)
             {
-                Console.WriteLine("\n\n" + filename + "---------------------------");
-                string[] tokens = filename.Split('.');
+                
+                char[] separators = { '.', Path.DirectorySeparatorChar };
+                string[] tokens = filename.Split(separators);
 
                 if (tokens.Length<2)
                 {
-                    Console.WriteLine("## Error for file " + filename + ". The file format could not be found.");
+                    ignoredFiles.Add(filename);
                     continue;
                 }
                 else
                 {
                     if (tokens.Last() != "html")
                     {
-                        Console.WriteLine("## Error for file " + filename + ". The file is not an html file.");
+                        ignoredFiles.Add(filename);
                         continue;
                     }
+
+                    Console.WriteLine("\n\n" + filename + "---------------------------");
 
                     string newExtension = "hamlet";
 
                     string filenameWithoutExtention=tokens[tokens.Length-2];
                     string outputFileName = outputFolder + Path.DirectorySeparatorChar + filenameWithoutExtention + "." + newExtension;
-                    string tempFilename = tempFolder + Path.DirectorySeparatorChar + filename;
+                    string tempFilename = tempFolder + Path.DirectorySeparatorChar + filenameWithoutExtention + ".html";
                     
 
                     StreamReader sr = new StreamReader(filename, Encoding.UTF8);
@@ -164,7 +186,12 @@ namespace HtmlToHamlet
                 }
             }
             Console.WriteLine("\n\nConversion complete. The converted files are located in the \"templates\" folder.");
-            Console.WriteLine("Press ENTER to exit.");
+            Console.WriteLine("\nThese files were ignored because the extention was not of html type.");
+            foreach (string path in ignoredFiles)
+            {
+                Console.WriteLine("\t " + path);
+            }
+            Console.WriteLine("\nPress ENTER to exit.");
             Console.ReadLine(); //Pause
         }
     }
